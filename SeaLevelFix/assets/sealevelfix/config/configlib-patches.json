@@ -5,7 +5,7 @@
   "settings": [
     {
       "code": "SeaLevel",
-      "comment": "Sea Level in Percentage of World Height",
+      "comment": "(EXPERIMENTAL) Sea Level in Percentage of World Height",
       "type": "float",
       "default": 0.4313725490196078,
       "range": {

@@ -1,0 +1,27 @@
+{
+  "version": 0,
+  "file": "SeaLevelFix.json",
+  "patches": {},
+  "settings": [
+    {
+      "code": "SeaLevel",
+      "comment": "Sea Level in Percentage of World Height",
+      "type": "float",
+      "default": 0.4313725490196078,
+      "range": {
+        "min": 0.1,
+        "max": 0.9
+      }
+    },
+    {
+      "code": "SurfaceOreMaxDepth",
+      "comment": "How deep an ore deposit can be and still generate surface deposits.",
+      "type": "float",
+      "default": 9.0,
+      "range": {
+        "min": 2.0,
+        "max": 200.0
+      }
+    }
+  ]
+}

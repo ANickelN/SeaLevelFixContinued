@@ -1,5 +1,6 @@
 using HarmonyLib;
 using Vintagestory.API.Common;
+using Vintagestory.API.Config;
 using Vintagestory.ServerMods;
 
 namespace SeaLevelFix;
@@ -14,12 +15,18 @@ public class SurfaceDepositFix : ModSystem
     {
         SurfaceDepositFix.api = api;
         ModConfig.LoadConfig(api);
+
+        if (api.Side != EnumAppSide.Server) return;
         
-        if (api.Side == EnumAppSide.Server)
+        if (ModConfig.SupportedVersions.Contains(GameVersion.ShortGameVersion))
         {
             harmony = new Harmony(Mod.Info.ModID);
             api.Logger.Event("Applying SurfaceDepositFix patches.");
             harmony.PatchCategory("SurfaceDepositFix"); // Applies all harmony patches
+        }
+        else
+        {
+            api.Logger.Error($"Skipping SurfaceDepositFix patches. Unsupported game version: {GameVersion.ShortGameVersion}.");
         }
     }
 

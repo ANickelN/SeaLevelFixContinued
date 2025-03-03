@@ -1,6 +1,7 @@
 using System.Reflection;
 using HarmonyLib;
 using Vintagestory.API.Common;
+using Vintagestory.API.Config;
 using Vintagestory.API.Server;
 using Vintagestory.ServerMods;
 
@@ -16,12 +17,18 @@ public class SeaLevelFix : ModSystem
     {
         SeaLevelFix.api = api;
         ModConfig.LoadConfig(api);
+
+        if (api.Side != EnumAppSide.Server) return;
         
-        if (api.Side == EnumAppSide.Server)
+        if (ModConfig.SupportedVersions.Contains(GameVersion.ShortGameVersion))
         {
             harmony = new Harmony(Mod.Info.ModID);
             api.Logger.Event("Applying SeaLevelFix patches.");
             harmony.PatchCategory("SeaLevelFix"); // Applies all harmony patches
+        }
+        else
+        {
+            api.Logger.Error($"Skipping SeaLevelFix patches. Unsupported game version: {GameVersion.ShortGameVersion}.");
         }
     }
 

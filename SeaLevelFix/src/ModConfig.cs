@@ -49,5 +49,6 @@ class ModConfig
     public float SurfaceOreMaxDepth { get { return _surfaceOreMaxDepth; } set { _surfaceOreMaxDepth = value >= 2 ? value : 0; } }
     private float _surfaceOreMaxDepth = 9.0f;
 
-    public static readonly IReadOnlyList<string> SupportedVersions = new List<string>() {"1.20.4", "1.20.5-rc.1"};
+    public static readonly IReadOnlyList<string> SupportedVersions = new List<string>()
+        { "1.20.4", "1.20.5-rc.1", "1.20.5-rc.2", "1.20.5-rc.3" };
 }

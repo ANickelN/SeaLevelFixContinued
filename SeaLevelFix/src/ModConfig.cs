@@ -30,7 +30,7 @@ class ModConfig
     /// <summary>
     /// Sea Level in Percentage of World Height
     /// </summary>
-    public float SeaLevel { get { return _seaLevel; }
+    public double SeaLevel { get { return _seaLevel; }
         set
         {
             if (value < 0.1)
@@ -41,7 +41,7 @@ class ModConfig
                 _seaLevel = value;
         }
     }
-    private float _seaLevel = 0.4313725490196078f;
+    private double _seaLevel = 22.0 / 51.0;
 
     /// <summary>
     /// How deep an ore deposit can be and still generate surface deposits.

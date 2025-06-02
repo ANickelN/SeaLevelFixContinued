@@ -11,6 +11,8 @@ public class SurfaceDepositFix : ModSystem
     public static ICoreAPI api;
     public Harmony harmony;
 
+    public override double ExecuteOrder() => -0.1;
+    
     public override void Start(ICoreAPI api)
     {
         SurfaceDepositFix.api = api;

@@ -13,6 +13,8 @@ public class SeaLevelFix : ModSystem
     public static ICoreAPI api;
     public Harmony harmony;
 
+    public override double ExecuteOrder() => -0.1;
+    
     public override void Start(ICoreAPI api)
     {
         SeaLevelFix.api = api;
